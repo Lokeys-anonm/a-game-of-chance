@@ -41,15 +41,26 @@ function kocok() {
   } else {
     result='legendary';
   }
-inventory.push(result);
-localStorage.setItem('inventory',JSON.stringify(inventory));
 
-document.getElementById('result').innerText=result;
-updateInventory();
-updateGoal();
-checkWin();
+let text = ["common", "uncommon", "rare", "epic", "legendary"];
+  let i = 0;
+
+  let interval = setInterval(() => {
+    resultText.innerText = text[i % text.length];
+    i++;
+  }, 100);
+    
+resultText.innerText = result;
+
+    inventory.push(result);
+    localStorage.setItem('inventory', JSON.stringify(inventory));
+
+    updateInventory();
+    updateGoal();
+    checkWin();
+  }, 1000);
+
 }, 1000);
-   }
 function updateInventory() {
   let list=
   document.getElementById('inventory');
