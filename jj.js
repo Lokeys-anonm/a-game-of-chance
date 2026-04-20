@@ -23,34 +23,36 @@ function kocok() {
   let resultText=
   document.getElementById('result');
   
-  resultText.innerText='rolling.....'
+  resultText.innerText='rolling.....';
   
   setTimeout(() => {
-  let rand=Math.random()* 100;
-  let result="";
-  
-  
+  let rand = Math.random() * 100;
+  let result = "";
+
   if (rand < 70) {
-    result='common';
+    result = 'common';
   } else if (rand < 80) {
-    result='uncommon';
+    result = 'uncommon';
   } else if (rand < 90) {
-   result = 'rare';
+    result = 'rare';
   } else if (rand < 98) {
-    result = epic
+    result = 'epic';
   } else {
-    result='legendary';
+    result = 'legendary';
   }
 
-let text = ["common", "uncommon", "rare", "epic", "legendary"];
+  let text = ["common", "uncommon", "rare", "epic", "legendary"];
   let i = 0;
 
   let interval = setInterval(() => {
     resultText.innerText = text[i % text.length];
     i++;
   }, 100);
-    
-resultText.innerText = result;
+
+  setTimeout(() => {
+    clearInterval(interval);
+
+    resultText.innerText = result;
 
     inventory.push(result);
     localStorage.setItem('inventory', JSON.stringify(inventory));
