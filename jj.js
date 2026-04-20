@@ -15,31 +15,22 @@ function kocok() {
     alert('coin tidak cukup');
     return;
   }
-  
-  coin-= 10;
+
+  coin -= 10;
   updateCoin();
-  localStorage.getItem('coin ', coin);
-  
-  let resultText=
-  document.getElementById('result');
-  
-  resultText.innerText='rolling.....';
-  
-  setTimeout(() => {
+  localStorage.setItem('coin', coin);
+
+  let resultText = document.getElementById('result');
+  resultText.innerText = 'rolling.....';
+
   let rand = Math.random() * 100;
   let result = "";
 
-  if (rand < 70) {
-    result = 'common';
-  } else if (rand < 80) {
-    result = 'uncommon';
-  } else if (rand < 90) {
-    result = 'rare';
-  } else if (rand < 98) {
-    result = 'epic';
-  } else {
-    result = 'legendary';
-  }
+  if (rand < 60) result = 'common';
+  else if (rand < 70) result = 'uncommon';
+  else if (rand < 85) result = 'rare';
+  else if (rand < 95) result = 'epic';
+  else result = 'legendary';
 
   let text = ["common", "uncommon", "rare", "epic", "legendary"];
   let i = 0;
@@ -61,8 +52,7 @@ function kocok() {
     updateGoal();
     checkWin();
   }, 1000);
-
-}, 1000);
+  }
 function updateInventory() {
   let list=
   document.getElementById('inventory');
