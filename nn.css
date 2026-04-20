@@ -59,8 +59,8 @@ button:hover {
     color: #D68BFF;
   }
   .legendary {
-    background: gold;
-    color: #FF4D4D;
+  background: gold;
+  box-shadow: 0 0 10px gold;
   }
   #result {
   font-size: 20px;
